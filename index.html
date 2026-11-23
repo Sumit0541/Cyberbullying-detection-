@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberShield AI | Privacy-First Safety Scanner</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <div class="brand"><span class="brand-icon">⬡</span> CyberShield <b>AI</b></div>
+      <span class="privacy-pill">● PRIVACY-FIRST</span>
+    </nav>
+
+    <header class="hero">
+      <div class="eyebrow">AI-POWERED DIGITAL SAFETY</div>
+      <h1>Your safety.<br><span>Our priority.</span></h1>
+      <p>Check a message for potential cyberbullying indicators and get practical safety recommendations.</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel scanner">
+        <div class="panel-heading">
+          <div><div class="eyebrow">MESSAGE ANALYSER</div><h2>Scan a message</h2></div>
+          <span class="live-dot">READY</span>
+        </div>
+        <label for="message">Paste message text</label>
+        <textarea id="message" maxlength="5000" placeholder="Paste or type a message here..."></textarea>
+        <div class="input-foot"><span>Up to 5,000 characters</span><span id="count">0 / 5000</span></div>
+        <button id="scanBtn" class="primary-btn">✦ Analyse message</button>
+        <p class="tiny-note">Tip: Remove names, phone numbers and other personal details before scanning.</p>
+        <div id="error" class="error" role="alert"></div>
+      </section>
+
+      <section class="panel result-panel">
+        <div class="eyebrow">ANALYSIS REPORT</div>
+        <div id="emptyState" class="empty-state">
+          <div class="scan-symbol">⌕</div>
+          <h2>Awaiting analysis</h2>
+          <p>Your report will appear here after you scan a message.</p>
+        </div>
+        <div id="results" class="hidden" aria-live="polite">
+          <div class="result-top">
+            <div><div class="muted">DETECTION STATUS</div><h2 id="status"></h2></div>
+            <span id="risk" class="risk">LOW RISK</span>
+          </div>
+          <div class="metric">
+            <div class="metric-head"><span>Model bullying score</span><strong id="confidence">0%</strong></div>
+            <div class="track"><div id="confidenceBar" class="fill"></div></div>
+            <p class="tiny-note">Model score is not a probability that bullying definitely occurred.</p>
+          </div>
+          <div class="report-block"><h3>Harmful-word indicators</h3><div id="terms" class="chips">None detected</div></div>
+          <div class="report-block"><h3>Possible categories</h3><div id="categories" class="chips">None detected</div></div>
+          <div class="report-block"><h3>Why was it flagged?</h3><p id="explanation" class="body-copy"></p></div>
+          <div class="report-block"><h3>Safety recommendations</h3><ul id="recommendations"></ul></div>
+        </div>
+      </section>
+    </main>
+
+    <section class="privacy-card">
+      <div class="privacy-icon">◈</div>
+      <div><h3>Privacy by design</h3><p>This demo does not store scanned messages in a database or send them to an external AI service. Analysis runs on this local Flask app. Avoid entering sensitive personal information.</p></div>
+    </section>
+
+    <footer>
+      <span>CYBERSHIELD AI · EDUCATIONAL DEMO</span>
+      <span>India: <a href="https://cybercrime.gov.in/" target="_blank" rel="noopener">Cyber Crime Portal</a> · Emergency: 112</span>
+    </footer>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
